@@ -47,7 +47,7 @@ public class Solution_2117 {
 				}
 			}
 			
-			
+			// 왜 내 이름이 안 뜨지? test
 			int res_hCount = 0; 
 			int cost, houseCount/*, currBenefit=0*/; 
 			// 1인 곳에 대해서, K값을 달리하며 1 개수 count 
