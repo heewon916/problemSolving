@@ -4,7 +4,17 @@ import java.io.*;
 /**
  * bfs + 3중반복문으로 풀이 시, 
  * O(N * N * 2N * N^2) = O(N^5) ~= 
- */
+ * 
+ * /** 풀이 기록 
+ * 1. 처음에 3중 반복문 + dfs로 1인 곳(집)에 가서 상하좌우 + 맨해튼 거리 조건으로 확인하면서 1이면 count해서 되돌려줌 
+ * -> 제한 시간 초과 발생 
+ * 2. bfs가 느리니까 이걸 완탐으로 바꿈. 1인 곳(집)을 먼저 찾아서 배열로 저장해두고, 
+ * 각 집으로 가서 맨해튼 거리를 계산해 그게 k보다 작으면 count++; 한다. 
+ * 
+ * 빡구현 문제 같은 
+ * 
+ * */
+
 public class Solution_2117 {
 	static int[][] mat; 
 	static int N; 
@@ -73,7 +83,9 @@ public class Solution_2117 {
 			sb.append("#").append(tc).append(" ").append(res_hCount).append("\n");
 		}
 		System.out.println(sb.toString());
-
-	}
-
+	}	
 }
+
+
+
+
