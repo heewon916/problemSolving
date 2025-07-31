@@ -12,40 +12,7 @@ public class Solution_2117 {
 //	static int res = 0;
 	static int[] dx = {-1, 1, 0, 0};
 	static int[] dy = {0, 0, -1, 1};
-	static int bfs(int cx, int cy, int k) { // -> 서비스 영역 내 집의 개수 리턴 
-		int res = 0; 
-		boolean[][] visited = new boolean[N][N];
-		ArrayDeque<int[]> q  = new ArrayDeque<>(); 
-		q.add(new int[]{cx, cy});
-		
-		// 첫번째 위치도 방문 처리 잊지 말고 해줘야 함. 
-		visited[cx][cy] = true; 
-//		System.out.println("k = " + k);
-		while(!q.isEmpty()) {
-			int[] t = q.poll();
-			int tx = t[0], ty = t[1]; 
-//			visited[tx][ty] = true; 
-			
-			if(mat[tx][ty] == 1) res++; 
-//			System.out.println("available pos = " + tx + ", " + ty);
-			
-			for(int d=0; d<4; d++) {
-				int nx = tx + dx[d];
-				int ny = ty + dy[d];
-				if(0<=nx && nx<N && 0<=ny && ny<N && !visited[nx][ny]) {
-//					int dist = Math.abs(nx-t[0]) + Math.abs(ny-t[1]);
-					int dist = Math.abs(nx-cx) + Math.abs(ny-cy);
-					// 맨해튼 거리 => (dist <= k)가 아니다.
-					if(dist < k) {
-						visited[nx][ny] = true; 
-						q.add(new int[]{nx, ny});
-						// res++; 
-					}
-				}
-			}
-		}
-		return res; 
-	}
+    
 	public static void main(String[] args) throws Exception{
 		System.setIn(new FileInputStream("Test2117.txt"));
 		StringTokenizer st = null; 
@@ -67,27 +34,40 @@ public class Solution_2117 {
 					mat[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
+			
+			// 1을 미리 받아놓고, 그 위치에 대해서만 계산하자. 			
+			// 1인 곳을 먼저 count 
+			List<int[]> homes = new ArrayList<int[]>();
+//			int[][] getOnePos = new int[N][2]; 
+			for(int i=0; i<N; i++) {
+				for(int j=0; j<N; j++) {
+					if(mat[i][j] == 1) {
+						homes.add(new int[]{i, j});
+					}
+				}
+			}
+			
+			
 			int res_hCount = 0; 
 			int cost, houseCount/*, currBenefit=0*/; 
 			// 1인 곳에 대해서, K값을 달리하며 1 개수 count 
 			for(int i=0; i<N; i++) {
 				for(int j=0; j<N; j++) {	
-//					for(int k=1; k <= N/2+1; k++) {
-					for(int k=1; k <= 2*N; k++) {
-						// k값에 따라 운영비용 계산 후, 수익 계산해서 업데이트
-						cost = k*k + (k-1)*(k-1);
-						houseCount = bfs(i, j, k); // 서비스 영역 안에 들어갈 집의 개수 
+					for(int k=1; k <= 2*N; k++) { // not N/2+1; yes 2*N
+						cost = k*k + (k-1)*(k-1); // k값에 따라 운영비용 계산 후, 수익 계산해서 업데이트
+						houseCount = 0; 
+						for(int[] h: homes) {
+							int nx = h[0], ny = h[1]; 
+							int dist = Math.abs(i-nx) + Math.abs(j-ny);
+							if(dist < k) houseCount++; 													
+						}
+											
 						// 운영비용보다 수익이 크거나 같고, 그 중에서 가장 많은 집들에 제공하는 서비스 영역 
 						// currBenefit은 조건이 아니다. 내 맘대로 해석하지 않기
 						if(houseCount*M >= cost) {
 							res_hCount = Math.max(res_hCount, houseCount); 
 						}
-//						if((currBenefit < (houseCount*M - cost)) && (res_hCount < houseCount)) {
-//							if(res_hCount < houseCount) {
-//								currBenefit = houseCount*M - cost; 
-//								res_hCount = houseCount; 	
-//						}
-					}		
+					}
 				}
 			}
 			sb.append("#").append(tc).append(" ").append(res_hCount).append("\n");
