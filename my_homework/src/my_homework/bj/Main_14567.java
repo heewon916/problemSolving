@@ -29,9 +29,7 @@ public class Main_14567 {
 				
 				result[next] = Math.max(result[next], result[cur]+1); // 현재 값이랑, 다른 데서 계산된 것 중에서 최댓값으로 저장해야 됨. (경로가 여러개일 수 있어서) 
 				
-				for(int i=0; i<N; i++) {
-					if(indegrees[i] == 0) queue.add(next);
-				}
+				if(indegrees[next] == 0) queue.add(next);
 			}
 		}
 		return result; 
@@ -75,4 +73,6 @@ public class Main_14567 {
  * -2) 진입차수가 0인 곳 큐에 저장 
  * -3) 큐가 빌 때까지; 0인 곳 pop -> 연결된 노드들의 진입차수--; -> 그렇게 변경된 진입차수 중에서 0인 곳 큐에 다시 push 
  * 
+ * 
+ * 첫 오류: 메모리 초과 ->:: topo() 함수에서 0인 곳 다시 집어넣을 때, for문 안 돌려도 되는데 for문을 돌려서 q가 터짐. 
  */
