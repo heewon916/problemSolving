@@ -20,10 +20,8 @@ public class Main_4485 {
 	static int N; 
 	static int[] dx = {-1, 1, 0, 0}; 
 	static int[] dy = {0, 0, -1, 1};
-	static int minLost; 
-	static int bfs(int x, int y) {
-		
-	}
+	static int minLost; // 
+
 	public static void main(String[] args) throws Exception{
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer st = null; 
@@ -41,31 +39,7 @@ public class Main_4485 {
 					mat[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-			
-			int x = 0, y = 0; 
-			ArrayDeque<int[]> q = new ArrayDeque<>(); 
-			boolean[][] visited = new boolean[N][N];
-			q.add(new int[] {x, y});
-			visited[x][y] = true; 
-			int temp = mat[0][0]; 
-			minLost = 0; 
-			while(!q.isEmpty()) {
-				int[] pos = q.poll();
-				x = pos[0]; y = pos[1]; 
-				int[] minPos;  
-				for(int d=0; d<4; d++) {
-					int nx = +dx[d], ny = y+dy[d];
-					if(0<=nx && nx<N && 0<=ny && ny<N && !visited[nx][ny]) {
-						if(mat[nx][ny] <= temp) {
-							minPos = new int[] {nx, ny};
-						}
-					}
-				}
-				minLost += mat[minPos[0][0]][minPos[0][0]];
-				
-			}
-			bfs(0, 0);
-			
+
 			
 			tc++; 
 			sb.append("Problem ").append(tc++).append(minLost);
