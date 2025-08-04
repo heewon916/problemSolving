@@ -29,6 +29,7 @@ public class Solution_1233 {
 					st.nextToken();
 					if(op.matches("-?\\d+")) answer = 0; 
 				}else if(tokenCount == 2){
+					// leaf node -> 연산자 불가능 
 					st.nextToken();
 					String value = st.nextToken();
 					if(!value.matches("-?\\d+")) answer = 0; 
@@ -41,5 +42,8 @@ public class Solution_1233 {
 		System.out.println(sb.toString());
 		
 	}
-
 }
+/*
+ * 배운 점:
+ * String.matches("-?\\d+) -> 해당 문자열이 숫자인지 아닌지 판단해준다. 
+ */
