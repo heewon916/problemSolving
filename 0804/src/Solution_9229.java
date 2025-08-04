@@ -22,6 +22,75 @@ public class Solution_9229 {
 	}
 	public static void main(String[] args) throws Exception{
 		// TODO Auto-generated method stub
+		/*투포인터로 풀이할 때*/
+		// 1. 오름차순 정렬 
+		// 2. 왼쪽 포인터, 오른쪽 포인터 
+		// 3. i<j일 때까지, 포인터 위치 왼쪽은 ++, 오른쪽은 -- 하면서 
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
+        int T = Integer.parseInt(br.readLine());
+        
+        // 이중 반복문으로만 
+        for(int tc = 1; tc <= T; tc++) {
+            st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
+            int M = Integer.parseInt(st.nextToken());
+
+            int[] snacks = new int[N];
+            st = new StringTokenizer(br.readLine());
+            for(int i = 0; i < N; i++) {
+                snacks[i] = Integer.parseInt(st.nextToken());
+            }
+
+            int answer = -1;
+            for(int i = 0; i < N - 1; i++) {
+                for(int j = i + 1; j < N; j++) {
+                    int sum = snacks[i] + snacks[j];
+                    if(sum <= M && sum > answer) {
+                        answer = sum;
+                    }
+                }
+            }
+
+            sb.append("#").append(tc).append(" ").append(answer).append("\n");
+        }
+        System.out.print(sb);
+        
+        /* 투포인터 알고리즘 
+        for(int tc = 1; tc <= T; tc++) {
+            st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
+            int M = Integer.parseInt(st.nextToken());
+
+            int[] snacks = new int[N];
+            st = new StringTokenizer(br.readLine());
+            for(int i = 0; i < N; i++) {
+                snacks[i] = Integer.parseInt(st.nextToken());
+            }
+            Arrays.sort(snacks); // 정렬
+
+            int left = 0, right = N - 1;
+            int answer = -1;
+
+            while(left < right) {
+                int sum = snacks[left] + snacks[right];
+                if(sum > M) {
+                    right--;
+                } else {
+                    // sum <= M
+                    if(sum > answer) answer = sum;
+                    left++;
+                }
+            }
+            
+
+            sb.append("#").append(tc).append(" ").append(answer).append("\n");
+        }
+        System.out.print(sb);
+        */
+        
+		/* 조합 + 완전탐색으로 풀 때 => O(N^2); N이 커지면 풀이 불가능 
 		StringTokenizer st = null; 
 		StringBuilder sb = new StringBuilder();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -55,6 +124,7 @@ public class Solution_9229 {
 			availComb.clear();
 		}
 		System.out.println(sb.toString());
+		*/
 	}
 }
 
