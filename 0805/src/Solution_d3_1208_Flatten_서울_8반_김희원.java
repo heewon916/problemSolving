@@ -1,6 +1,6 @@
 import java.io.*; 
 import java.util.*;
-public class Solution_1208 {
+public class Solution_d3_1208_Flatten_서울_8반_김희원 {
 
 	public static void main(String[] args) throws Exception{
 		System.setIn(new FileInputStream("C:/SSAFY/homework/0805/Test1208.txt"));

@@ -1,7 +1,7 @@
 import java.util.*; 
 import java.io.*; 
 
-public class Solution_9229 {
+public class Solution_d3_9229_한빈이와SpotMart_서울_8반_김희원 {
 	static int N, limit; 
 	static int[] arr, used = new int[2];
 	static List<Integer> availComb = new ArrayList<Integer>(); 
