@@ -30,15 +30,15 @@ public class Solution_d3_5215_햄버거다이어트_서울_8반_김희원 {
 	}
 	/*
 	static PriorityQueue<Integer> avail;
-//	static void comb(int start, int cnt, int cal) {
-//		if(cal > limit) return; 
-//		if(maxCal < cal) maxCal = cal; 
-//		if(start == N) return; 
-//		// for(int i=start; i<N; i++) {
-//		comb(start+1, cnt+1, cal + list.get(start)[1]);
-//		comb(start+1, cnt+1, cal);
-//		// }
-//	}
+	static void comb(int start, int cnt, int cal) {
+		if(cal > limit) return; 
+		if(maxCal < cal) maxCal = cal; 
+		if(start == N) return; 
+		for(int i=start; i<N; i++) {
+			comb(start+1, cnt+1, cal + list.get(start)[1]);
+			comb(start+1, cnt+1, cal);
+		}
+	}
 	static void comb(int start, int cnt, int cal, int score) {
 		if(cal > limit) return; 
 		if(cal > maxCal && cal < limit) maxCal = cal; 
