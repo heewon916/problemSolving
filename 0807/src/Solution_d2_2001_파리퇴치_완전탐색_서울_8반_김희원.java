@@ -1,8 +1,10 @@
 import java.io.*; 
 import java.util.*; 
 
-public class Solution_d2_2001_파리퇴치_서울_8반_김희원 {
-
+public class Solution_d2_2001_파리퇴치_완전탐색_서울_8반_김희원 {
+	/*
+	 * 완전 탐색 방법 
+	 */
 	public static void main(String[] args) throws Exception{
 		System.setIn(new FileInputStream("C:/SSAFY/homework/0807/Test2001.txt"));
 		StringBuilder sb = new StringBuilder(); 
