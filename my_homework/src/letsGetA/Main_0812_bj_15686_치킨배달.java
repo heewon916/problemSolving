@@ -2,7 +2,7 @@ package letsGetA;
 import java.io.*; 
 import java.util.*;
 
-public class Main_bj_15686_치킨배달_0812 {
+public class Main_0812_bj_15686_치킨배달 {
 	static int N, M; 
 	static int[][] mat; 
 	static List<int[]> chickPos; 
