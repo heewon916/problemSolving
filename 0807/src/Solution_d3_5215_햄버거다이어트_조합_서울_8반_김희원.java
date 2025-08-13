@@ -18,17 +18,14 @@ import java.io.*;
 public class Solution_d3_5215_햄버거다이어트_조합_서울_8반_김희원 { 
 	static int N, limit; 
 	static List<int[]> info;
-//	static List<Integer> maxScoreL = new ArrayList<>();  // -> 이걸 쓸 거면, for문에서 maxScoreL을 비워주는 게 필요했따. 
 	static int maxScoreComb; 
-	static int[] b; 
-	static void comb(int cnt, int start, int cal/*, int[] b*/, int depth, int score ) {
+	static void comb(int cnt, int start, int cal, int depth, int score ) {
 		if(cal > limit) return; 
 		if(cnt == depth) {
 			maxScoreComb = Math.max(score, maxScoreComb);
 			return; 
 		}
 		for(int i=start; i<N; i++) {
-//			b[cnt] = info.get(i)[1];
 			comb(cnt+1, i+1, cal+info.get(i)[1], depth, score+info.get(i)[0]);
 		}
 	}
@@ -57,11 +54,8 @@ public class Solution_d3_5215_햄버거다이어트_조합_서울_8반_김희원
 			for(int i=1; i<=N; i++) {
 				maxScoreComb = -1; 
 				comb(0, 0, 0, i, 0);
-//				maxScoreL.add(maxScore1);
-//				maxScoreL.clear(); 
 				overallMaxScore = Math.max(maxScoreComb, overallMaxScore);
 			}
-//			maxScoreL.sort((a,b) -> -Integer.compare(a, b)); 
 			sb.append("#").append(tc).append(" ").append(overallMaxScore).append("\n");
 		}
 		System.out.println(sb.toString());
