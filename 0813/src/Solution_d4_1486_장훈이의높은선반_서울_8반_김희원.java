@@ -19,10 +19,10 @@ public class Solution_d4_1486_장훈이의높은선반_서울_8반_김희원 {
 			H = new int[N];
 			for(int i=0; i<N; i++) H[i] = Integer.parseInt(st.nextToken());
 			
+			minDiff = Integer.MAX_VALUE;	/*subset함수 호출 전에 초기화하는 것이 더 낫다*/
 			// 점원들을 쌓아서 만들 수 있는 높이 중 1) B이상이고, 2) 그 중에서 가장 낮은 탑 
 			subset(0, 0);
-			sb.append("#").append(tc).append(" ").append(minDiff).append("\n");
-			minDiff = Integer.MAX_VALUE;
+			sb.append("#").append(tc).append(" ").append(minDiff-B).append("\n");
 		}
 		System.out.println(sb.toString());
 	}
@@ -42,7 +42,8 @@ public class Solution_d4_1486_장훈이의높은선반_서울_8반_김희원 {
 			subset(i+1, h+H[i]);
 			subset(i+1, h);
 		}else { // 높이가 B 이상인 경우 
-			minDiff = Math.min(h-B, minDiff);
+			/* minDiff = Math.min(h-B, minDiff);*/
+			minDiff = h; // 좀 더 직관적인 코드 
 		}
 	}
 
