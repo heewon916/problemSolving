@@ -1,3 +1,4 @@
+package my_homework.swea;
 
 public class Solution_d9_4008_숫자만들기_서울_8반_김희원 {
 

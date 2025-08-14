@@ -1,3 +1,4 @@
+package my_homework.swea;
 
 public class Solution_d9_5650_핀볼게임_서울_8반_김희원 {
 
