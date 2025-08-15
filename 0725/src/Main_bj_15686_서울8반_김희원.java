@@ -1,7 +1,7 @@
 import java.io.*; 
 import java.util.*; 
 
-public class Main_15686 {
+public class Main_bj_15686_서울8반_김희원 {
 	static int N, M; 
 	static int[][] mat; 
 	static int[][] chickenPos; 
