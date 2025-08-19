@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "java (buildArtifact)",
+      "targetPath": "${workspaceFolder}/${workspaceFolderBasename}.jar",
+      "elements": [
+        "${compileOutput:0804}",
+        "${dependencies:0804}",
+        "${compileOutput:0805}",
+        "${dependencies:0805}",
+        "${compileOutput:0806}",
+        "${dependencies:0806}",
+        "${compileOutput:0807}",
+        "${dependencies:0807}",
+        "${compileOutput:0808}",
+        "${dependencies:0808}",
+        "${compileOutput:0811}",
+        "${dependencies:0811}",
+        "${compileOutput:0812}",
+        "${dependencies:0812}",
+        "${compileOutput:0813}",
+        "${dependencies:0813}",
+        "${compileOutput:0814}",
+        "${dependencies:0814}",
+        "${compileOutput:my_homework}",
+        "${dependencies:my_homework}"
+      ],
+      "problemMatcher": [],
+      "label": "java (buildArtifact): homework",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
