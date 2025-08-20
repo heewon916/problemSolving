@@ -32,18 +32,18 @@ public class Solution_d4_7733_치즈도둑_서울_8반_김희원 {
 			int max_Networks = 0; 
 			for(int day=0; day <= 100; day++) {
 				// day날 day 칸 먹음 
-				for(int i=0; i<N; i++) {
-					for(int j=0; j<N; j++) {
-						if(mat[i][j] == day) mat[i][j] = -1; 
-					}
-				}
+//				for(int i=0; i<N; i++) {
+//					for(int j=0; j<N; j++) {
+//						if(mat[i][j] == day) mat[i][j] = -1; 
+//					}
+//				}
 				// 치즈 덩어리 찾으러 감; 상하좌우로 인접한 칸들
 				// 그날 그날 bfs 새롭게 해주기 
 				int network_cnt = 0; 
 				boolean[][] visited = new boolean[N][N];
 				for(int i=0; i<N; i++) {
 					for(int j=0; j<N; j++) {
-						if(!visited[i][j] && mat[i][j] != -1) {
+						if(!visited[i][j] && mat[i][j] > day) {
 							network_cnt++; 
 							bfs(i, j, day, visited);
 						}
@@ -69,7 +69,7 @@ public class Solution_d4_7733_치즈도둑_서울_8반_김희원 {
 			for(int d=0; d<4; d++) {
 				int nx = cur[0] + dx[d];
 				int ny = cur[1] + dy[d];
-				if(0<=nx && nx<N && 0<=ny && ny<N && !visited[nx][ny] && mat[nx][ny] != -1) {
+				if(0<=nx && nx<N && 0<=ny && ny<N && !visited[nx][ny] && mat[nx][ny] > day) {
 					// 먹지 않은 인접한 칸들에 대해서 모두 방문 처리 
 					q.add(new int[] {nx, ny});
 					visited[nx][ny] = true; 
