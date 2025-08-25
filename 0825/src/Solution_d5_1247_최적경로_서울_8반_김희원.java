@@ -44,24 +44,49 @@ public class Solution_d5_1247_최적경로_서울_8반_김희원 {
 		
 		for(int t=1; t<=T; t++) {
 			st = new StringTokenizer(br.readLine());
-			answer = Integer.MAX_VALUE; 
 			N = Integer.parseInt(st.nextToken());
-			homes = new ArrayList<>(); 
-			visited = new boolean[N];
+//			homes = new ArrayList<>(); 
+//			visited = new boolean[N];
+//			st = new StringTokenizer(br.readLine(), " ");
+//			int sx = Integer.parseInt(st.nextToken());
+//			int sy = Integer.parseInt(st.nextToken());
+//			int tx = Integer.parseInt(st.nextToken());
+//			int ty = Integer.parseInt(st.nextToken());
+//			for(int i=0; i<N; i++) {
+//				int x = Integer.parseInt(st.nextToken());
+//				int y = Integer.parseInt(st.nextToken());
+//				homes.add(new int[] {x, y});
+//			}
+//			b = new int[N+2][2]; 
+//			b[0] = new int[]{sx, sy}; 
+//			b[N+1] = new int[]{tx, ty}; 
+			/*
+			 * 발전시키는 법: homes를 두지 말고, 미리 모든 정점간의 맨허튼 거리를 구하면 좋다. 
+			 */
 			st = new StringTokenizer(br.readLine(), " ");
-			int sx = Integer.parseInt(st.nextToken());
-			int sy = Integer.parseInt(st.nextToken());
-			int tx = Integer.parseInt(st.nextToken());
-			int ty = Integer.parseInt(st.nextToken());
-			for(int i=0; i<N; i++) {
-				int x = Integer.parseInt(st.nextToken());
-				int y = Integer.parseInt(st.nextToken());
-				homes.add(new int[] {x, y});
+			int[] xs = new int[N+2];
+			int[] ys = new int[N+2];
+			
+			xs[0] = Integer.parseInt(st.nextToken()); ys[0] = Integer.parseInt(st.nextToken());
+			xs[N+1] = Integer.parseInt(st.nextToken()); ys[N+1] = Integer.parseInt(st.nextToken());
+			for(int i=1; i<N+1; i++) {
+				xs[i] = Integer.parseInt(st.nextToken()); 
+				ys[i] = Integer.parseInt(st.nextToken());
 			}
-			b = new int[N+2][2]; 
-			b[0] = new int[]{sx, sy}; 
-			b[N+1] = new int[]{tx, ty}; 
-			perm(1, 0); 
+			// 거리 전처리 
+			dist = new int[N+2][N+2];
+			for(int i=0; i<N+2; i++) {
+				for(int j=0; j<N+2; j++) {
+					dist[i][j] = Math.abs(xs[i] - xs[j]) + Math.abs(ys[i] - ys[j]);
+				}
+			}
+			
+			answer = Integer.MAX_VALUE; 
+			visited = new boolean[N+2];// 1..N만 사용
+
+//			perm(1, 0); 
+			dfs(0, 0, 0);
+			
 			sb.append("#").append(t).append(" ").append(answer).append("\n");
 		}
 		System.out.println(sb.toString());
@@ -69,27 +94,44 @@ public class Solution_d5_1247_최적경로_서울_8반_김희원 {
 	static int N; 
 	static int[][] b; 
 	static boolean[] visited; 
-	static List<int[]> homes;
+	static int[][] dist; 
+	static List<int[]> homes; 
 	static int answer = Integer.MAX_VALUE;
-	static void perm(int cnt, int sum) {
-		if(sum >= answer) return; 
-		if(cnt == N+1) {
-//			int min_dist = 0; 
-//			for(int i=0; i<N+1; i++) {
-//				int dist = Math.abs(b[i][0] - b[i+1][0]) + Math.abs(b[i][1] - b[i+1][1]);
-//				min_dist += dist; 
-//			}
-//			answer = Math.min(answer, min_dist);
-			sum += Math.abs(b[N][0] - b[N+1][0]) + Math.abs(b[N][1] - b[N+1][1]);
-			if(sum < answer) answer = sum; 
-			return;  
-		}
-		for(int i=0; i<N; i++) {
-			if(visited[i]) continue; 
-			b[cnt] = homes.get(i);
-			visited[i] = true; 
-			perm(cnt+1, sum + Math.abs(b[cnt-1][0] - b[cnt][0]) + Math.abs(b[cnt-1][1] - b[cnt][1]));
-			visited[i] = false; 
-		}
-	}
+	 // depth: 방문한 고객 수 (0..N)
+    // last : 현재 위치의 인덱스 (0=회사 또는 고객 인덱스)
+    // sum  : 지금까지 누적 거리
+    static void dfs(int depth, int last, int sum) {
+        // 가지치기
+        if (sum >= answer) return;
+
+        // 고객 N명 모두 방문 -> 집(N+1)으로 이동해서 갱신
+        if (depth == N) {
+            sum += dist[last][N + 1];
+            if (sum < answer) answer = sum;
+            return;
+        }
+
+        // 다음 방문할 고객 선택 (1..N)
+        for (int i = 1; i <= N; i++) {
+            if (visited[i]) continue;
+            visited[i] = true;
+            dfs(depth + 1, i, sum + dist[last][i]);
+            visited[i] = false;
+        }
+    }
+//	static void perm(int cnt, int sum) {
+//		if(sum >= answer) return; 
+//		if(cnt == N+1) {
+//			sum += Math.abs(b[N][0] - b[N+1][0]) + Math.abs(b[N][1] - b[N+1][1]);
+//			if(sum < answer) answer = sum; 
+//			return;  
+//		}
+//		for(int i=0; i<N; i++) {
+//			if(visited[i]) continue; 
+//			b[cnt] = homes.get(i);
+//			visited[i] = true; 
+//			perm(cnt+1, sum + Math.abs(b[cnt-1][0] - b[cnt][0]) + Math.abs(b[cnt-1][1] - b[cnt][1]));
+//			visited[i] = false; 
+//		}
+//	}
 }
