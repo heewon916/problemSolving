@@ -17,7 +17,7 @@ public class Solution_d4_1249_보급로_서울_8반_김희원 {
 		 * 
 		 * dp 같은데? 시간의 누적합 
 		 */
-		// System.setIn(new FileInputStream("C:\\SSAFY\\homework\\0822\\Input1249.txt"));
+		System.setIn(new FileInputStream("C:\\SSAFY\\homework\\0822\\Input1249.txt"));
 		StringBuilder sb = new StringBuilder(); 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;

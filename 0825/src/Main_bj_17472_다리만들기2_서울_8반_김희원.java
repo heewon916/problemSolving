@@ -1,9 +1,0 @@
-
-public class Main_bj_17472_다리만들기2_서울_8반_김희원 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-}
