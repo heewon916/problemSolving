@@ -15,45 +15,76 @@ public class Solution_d4_1247_최적경로_서울_8반_김희원 {
 			min_dist = Integer.MAX_VALUE; 
 			n = Integer.parseInt(st.nextToken());
 			
-			homes = new int[n+2][2]; 
-			int x = -1, y = -1 ; 
+			// step1. 각 집들의 좌표를 x, y 따로따로 입력받는다. 
+			// 0과 n+1 인덱스에는 각각 회사 좌표, 내 집 좌표가 들어간다. 
 			st = new StringTokenizer(br.readLine(), " ");
-			for(int i=0; i<n+2; i++) {
-				x = Integer.parseInt(st.nextToken()); 
-				y = Integer.parseInt(st.nextToken()); 
-				homes[i] = new int[] {x, y}; 
+			int[] xs = new int[n+2]; 
+			int[] ys = new int[n+2]; 
+			xs[0] = Integer.parseInt(st.nextToken());
+			ys[0] = Integer.parseInt(st.nextToken());
+			xs[n+1] = Integer.parseInt(st.nextToken());
+			ys[n+1] = Integer.parseInt(st.nextToken());
+			for(int i=1; i<n+1; i++) {
+				xs[i] = Integer.parseInt(st.nextToken());
+				ys[i] = Integer.parseInt(st.nextToken());
 			}
-			visited = new boolean[n+2];
-			b = new int[n+2][2]; 
-			b[0] = homes[0]; b[n+1] = homes[1]; 
-			perm(1); 
+			
+			// step2. 각 집들 간의 맨허튼 거리를 미리 계산해둔다. 
+			dist = new int[n+2][n+2]; 
+			for(int i=0; i<n+2; i++) {
+				for(int j=0; j<n+2; j++) {
+					dist[i][j] = Math.abs(xs[i] - xs[j]) + Math.abs(ys[i] - ys[j]); 
+				}
+			}
+			
+			// step3. 각 집들을 방문하면서, 최단 경로를 계산해보자. 
+			v = new boolean[n+1];
+			
+			// step4. depth는 0부터, last로 방문한 좌표 인덱스는 0부터, sum은 거리 합 
+			dfs(0, 0, 0);
 			sb.append("#").append(t).append(" ").append(min_dist).append("\n"); 
 		}
 		System.out.println(sb.toString());
 	}
 	static int n; 
-	static int[][] homes; 
-	static boolean[] visited; 	// homes에서 1부터 n까지의 집들만 파악한다. 
-	static int[][] b; 
+	static boolean[] v; 	// homes에서 1부터 n까지의 집들만 파악한다. 
+	static int[][] dist; 
 	static int min_dist = Integer.MAX_VALUE; 
-	static void perm(int cnt) {
-		if(cnt == n+1) {
-			int sum = 0; 
-			for(int i=0; i<n+1; i++) {
-				sum += Math.abs(b[i][0] - b[i+1][0]) + Math.abs(b[i][1] - b[i+1][1]);
-				if(sum > min_dist) return; 
-			} 
-			if(min_dist > sum) min_dist = sum;
-			return; 
+	static void dfs(int depth, int last, int sum) {
+		if(sum > min_dist) return;
+		
+		// 만약 n번 다 돌았으면 모든 집 방문한 거니까 
+		if(depth == n) {
+			// 내 집 좌표와 last의 맨허튼 거리를 마저 더해주자. 
+			sum += dist[last][n+1];
+			if(sum < min_dist) min_dist = sum; 
 		}
-		for(int i=2; i<=n+1; i++) {
-			if(visited[i]) continue; 
-			visited[i] = true; 
-			b[cnt] = homes[i]; 
-			perm(cnt+1);
-			visited[i] = false; 
+		for(int i=1; i<=n; i++) {
+			if(v[i]) continue; 
+			v[i] = true; 
+			// i를 방문했으니까 last는 i가 된다. 
+			dfs(depth+1, i, sum + dist[last][i]);
+			v[i] = false; 
 		}
 	}
+//	static void perm(int cnt) {
+//		if(cnt == n+1) {
+//			int sum = 0; 
+//			for(int i=0; i<n+1; i++) {
+//				sum += Math.abs(b[i][0] - b[i+1][0]) + Math.abs(b[i][1] - b[i+1][1]);
+//				if(sum > min_dist) return; 
+//			} 
+//			if(min_dist > sum) min_dist = sum;
+//			return; 
+//		}
+//		for(int i=2; i<=n+1; i++) {
+//			if(visited[i]) continue; 
+//			visited[i] = true; 
+//			b[cnt] = homes[i]; 
+//			perm(cnt+1);
+//			visited[i] = false; 
+//		}
+//	}
 }
 /*
 [설계하기] 
