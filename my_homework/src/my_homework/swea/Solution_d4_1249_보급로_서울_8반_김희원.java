@@ -1,3 +1,5 @@
+package my_homework.swea;
+
 import java.io.*; 
 import java.util.*; 
 
