@@ -55,16 +55,18 @@ public class Main_bj_17472_다리만들기2_서울_8반_김희원 {
 			}
 		}
 		
-		System.out.println(id); // 섬이 4개면 id의 마지막 값은 5 
+		// System.out.println(id); // 섬이 4개면 id의 마지막 값은 5 
 		
 		// 2. id가 다른 섬끼리의 거리 중 최소 비용 거리 구하기 (단, 2이상이어야 한다)
-		// u에서 v로 가는 거리의 최솟값을 dist에 넣자. dist는 서로 다른 섬 간의 거리니까 id 크기만큼 필요하다. 
+		// u에서 v로 가는 거리의 최솟값을 dist[][]에 넣자. dist는 서로 다른 섬 간의 거리니까 id 크기만큼 필요하다. 
 		// pq를 쓸 수 없는 이유는 같은 u->v 간선에 대해서 최솟값 갱신이 어렵기 때문이다. 
 		// len이 2 이상인 출발점과 다른 섬을 찾으면 넣자 
 		// PriorityQueue<int[]> pq = new PriorityQueue<>(); 
 		int[][] dist = new int[id][id]; 
-		for(int i=0;i<id; i++) Arrays.fill(dist[i], Integer.MAX_VALUE);
-		
+		for(int i=0;i<id; i++) {
+			Arrays.fill(dist[i], Integer.MAX_VALUE);
+			dist[i][i] = 0; 
+		}
 		for(int i=0; i<N; i++) {
 			for(int j=0; j<M; j++) {
 				int nowId = mat[i][j]; 
@@ -80,36 +82,40 @@ public class Main_bj_17472_다리만들기2_서울_8반_김희원 {
 					// 다른 섬에 도착할 때까지 계속 이동해야 됨 
 					int len = 0; 
 					while(0<=ni && ni<N && 0<=nj && nj<M) {
+						// System.out.println("while문 시작");
 						if(mat[ni][nj] == nowId) break; // 나 자신이 됨 
-						if(mat[ni][nj] > 0 && mat[ni][nj] != nowId) {
+						if(mat[ni][nj] > 0) {
 							// 시작 섬의 id가 아닌 다른 섬에 도착했을 때 
 							// len이 2이상이면 챙겨야 되고, 아니면 버려야 됨 
 							if(len >= 2) {
 								int newId = mat[ni][nj];
-								if(len < dist[nowId][newId]) dist[nowId][newId] = dist[newId][nowId] = len; 
+								if(len < dist[nowId][newId]){
+									dist[nowId][newId] = dist[newId][nowId] = len;
+								}
 							}
 							break; 
 						}
 						len++; 
-						ni += i+dx[d]; 
-						nj += j+dy[d];
+						ni = ni+dx[d]; 
+						nj = nj+dy[d];
 					}
 				}
 			}
 		}
 		
-		for(int i=0; i<id; i++) {
-			for(int j=0; j<id; j++) {
-				System.out.print(dist[i][j] + " ");
-			}
-			System.out.println();
-		}
+		// for(int i=0; i<id; i++) {
+		// 	for(int j=0; j<id; j++) {
+		// 		System.out.print(dist[i][j] + " ");
+		// 	}
+		// 	System.out.println();
+		// }
 		
 		// 3. 1번 정점부터 시작해서, 최소비용 신장트리를 만들어야 함. 
 		// 각 정점 간의 최소 거리는 dist에 저장되어있음 
 		int[] prim = new int[id]; 		// 각 정점에 대해, 트리와의 최소 거리 구함 
+		Arrays.fill(prim, Integer.MAX_VALUE);
 		boolean[] v = new boolean[id]; 	// 각 정점이 트리에 포함되었는지 여부를 구함 
-		PriorityQueue<int[]> pq = new PriorityQueue<>();  			// 각 정점과 가중치 값을 넣고 뺌.
+		PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2)-> Integer.compare(o1[1], o2[1]));  			// 각 정점과 가중치 값을 넣고 뺌.
 		
 		prim[1] = 0; 
 		pq.add(new int[] {1, prim[1]});
@@ -123,18 +129,22 @@ public class Main_bj_17472_다리만들기2_서울_8반_김희원 {
 			if(v[minVertex]) continue; 
 			v[minVertex] = true; 
 			mst += min; 
-			
-			if(++cnt == id) break; 
+			// System.out.printf("minVertex=%d, mst=%d\n", minVertex, mst);
+			if(++cnt == id-1) break; 
 			
 			for(int k=1; k<id; k++) {
 				if(!v[k] && dist[minVertex][k] < prim[k]) {
 					prim[k] = dist[minVertex][k]; 
+					pq.offer(new int[]{k, prim[k]});
 				}
 			}
 		}
-		System.out.println(mst);
+		
+		// 주의! mst가 0이라고 무조건 답이 -1은 아니다. 
+		// 모든 정점을 방문했는지, 그러지 못했는지가 -1이 되는 조건이 된다. 
+		System.out.println(cnt == (id-1)? mst: -1); 
+		
 	}
-
 }
 
 /*
@@ -172,15 +182,39 @@ NxM ~ 100
 [구현] 
 1. 각 섬을 구분지어야 한다. 
 bfs로 주변에서 같은 섬이면 같은 id값을 갖도록 한다. 
-mat에 입력을 받은 다음에 id = 1로 둔 다음에 
-bfs를 0,0부터 돌면서 visited[][] 에 대해서 같은 그룹에 속하는 좌표에는 같은 id값을 갖도록 한다. 
+mat에 그래프 입력을 받는다. 
+id는 1부터 시작. 각 그룹의 번호를 뜻한다.  
+i, j에 대해서 bfs 
+	방문 안 했고, mat[i][j]가 1인 애들에 대해서만 
+	bfs(i,j) 
+	id++ 
+2. 섬을 하나의 정점으로 보고 서로 다른 섬끼리의 최소 거리를 구해야 한다. PQ는 같은 간선에 대해 업데이트가 쉽지 않다.
+한 좌표에 대해서 4방탐색을 하는데, 그 방향으로 직선 방향으로 쭉 뻗어야 한다. 
+int[][] dist :: dist[u][v] = u에서 v로 가는 직선 거리의 최솟값 
+인덱스 값은 각 그룹 번호니까, id값이다. 
+최솟값으로 만들어가야 하니까, dist의 원소값을 모두 MAX값으로 초기화한다. 
+dist[i][i] = 0으로 한다 
 
-2. 섬을 하나의 정점으로 보고 서로 다른 섬끼리의 최소 거리를 구해서 PQ에 넣어둔다. 
-PQ <- new int[]{id1, id2, w} 
+for i, j에 대해서 
+	nowId <- 현재 id값을 넣는다. mat[i][j]
+	4방 탐색 
+		ni, nj 
+		범위 벗어나면 continue 
+		만약 바다가 아니면 continue 
+
+		len <- 0 : 서로 다른 그룹과의 거리 (2 이상일 때만 유효하다)
+		while ni,nj가 범위 안에 있을 때 
+			만약 mat[ni][nj]가 nowId가 되면 break 
+			만약 mat[ni][nj]가 다른 섬이면 >0 
+				그때 len > 2이고 dist > len이면 
+					nextId <- mat[ni][nj] 
+					dist[nowId][nextId] = dist[nextId][nowId] = len
+
+3. 프림처리해서 mst를 구하면 되지 않을까 mst += w 
 boolean[] v <- 트리에 포함된 정점인지 
 int[] prim <- 트리에서의 최소 거리 
-
 int mst, cnt 
-3. 프림처리해서 mst를 구하면 되지 않을까 mst += w 
+PQ<int[]> pq <- {i, prim[i]}
+
 
 */
