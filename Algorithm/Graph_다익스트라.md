@@ -221,13 +221,13 @@ public class DijkstraMatrixPqMain {
  */
 ```
 
-## 구현 4. 우선순위 큐 
+## 구현 4. 인접리스트 + 우선순위 큐 
 ```java
 package a0808.subset;
 import java.io.*; 
 import java.util.*;
 
-public class DijkstraPqMain {
+public class DijkstraListPqMain {
 	/*
 	 * 다익스트라: 우선순위 큐로 구현 
 	 */
