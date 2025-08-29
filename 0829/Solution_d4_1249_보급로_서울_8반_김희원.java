@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution_d_1249_보급로_서울_8반_김희원 {
+public class Solution_d4_1249_보급로_서울_8반_김희원 {
   public static void main(String[] args) throws Exception {
     System.setIn(new FileInputStream("C:\\SSAFY\\homework\\0829\\Input1249.txt"));
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -11,7 +11,6 @@ public class Solution_d_1249_보급로_서울_8반_김희원 {
     int T = Integer.parseInt(st.nextToken());
 
     for(int t=1; t<=T; t++){
-      System.out.println("test" + t);
       st = new StringTokenizer(br.readLine()); 
       int N = Integer.parseInt(st.nextToken());
 
@@ -28,7 +27,6 @@ public class Solution_d_1249_보급로_서울_8반_김희원 {
       int[] dx = {-1, 1, 0, 0};
       int[] dy = {0, 0, -1, 1};
       dp[0][0] = dist[0][0]; 
-      // dp[N-1][N-1] = 0; 
       PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2)-> Integer.compare(o1[2], o2[2])); 
       pq.add(new int[]{0, 0, dp[0][0]});
       while(!pq.isEmpty()){
@@ -43,19 +41,6 @@ public class Solution_d_1249_보급로_서울_8반_김희원 {
           }
         }
       }
-
-      // !!! 주의. 아래 코드는 현재까지 누적비용이 가장 작은 정점부터가 안된다. 
-      // for(int i=0; i<N; i++){
-      //   for(int j=0; j<N; j++){
-      //     for(int d=0; d<4; d++){
-      //       int ni = i+dx[d], nj = j+dy[d]; 
-      //       if(0>ni || ni>=N || 0>nj || nj>=N) continue; 
-      //       if(dp[ni][nj] > dist[ni][nj] + dp[i][j]) {
-      //         dp[ni][nj] = dist[ni][nj] + dp[i][j];
-      //       }
-      //     }
-      //   }
-      // }
       sb.append("#").append(t).append(' ').append(dp[N-1][N-1]).append("\n");
     }
     System.out.println(sb.toString());
