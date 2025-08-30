@@ -42,7 +42,7 @@ public class Main_bj_17471_게리맨더링_서울_8반_김희원 {
                 } 
             }
             dfs(idx0, visited);
-            boolean able = true; 
+            // boolean able = true; 
             for(int i=1; i<N+1; i++){
                 if(b[idx0] == b[i] && !visited[i]){
                     // able = true; 
