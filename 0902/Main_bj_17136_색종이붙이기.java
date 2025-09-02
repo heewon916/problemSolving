@@ -15,14 +15,15 @@ public class Main_bj_17136_색종이붙이기 {
         }
 
         PriorityQueue<int[]> pq = new PriorityQueue<>((o1, o2)->Integer.compare(o1[2], o2[2]));
-        int[] dx = {0, 0, 1, 1};
-        int[] dy = {0, 1, 0, 1};
-
+         
+        v = new boolean[10][10]; 
         for(int i=0; i<10; i++){
             for(int j=0; j<10; j++){
                 for(int width=6; width>0; width--){
                     boolean able = checkRectangle(i, j, width);
-                    if(able) pq.add(new int[]{i, j, width});
+                    if(able) {
+                        pq.add(new int[]{i, j, width});
+                    }
                 }
             }
         }
@@ -46,6 +47,7 @@ public class Main_bj_17136_색종이붙이기 {
             }
         }
     }
+    static boolean[][] v; 
     static int[][] mat; 
     static boolean checkDeleteCond(int i, int j, int w){
         for(int r=i; r<i+w; r++){
@@ -94,6 +96,10 @@ pq를 순서대로 뽑으면서
         mat[i..][j..] = -1; 
     
     이 녀석으로 인해서 다른 시작점이 포함하고 있는 영역도 들어가있었다면 그 시작점들은 모두 삭제 
+
+===
+바로 큰 종이부터 붙이는 그리디적인 사고를 이용하되, DFS와 백트래킹을 사용함으로써 완전탐색을 수행해야합니다. 
+일단, nxn 범위 내에 모두 1이 존재한다면 nxn 색종이를 붙였다가 뗐다가 반복하는 식입니다.
 
 
 */
