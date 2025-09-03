@@ -1,6 +1,6 @@
 import java.io.*; 
 import java.util.*; 
-public class Main /*_bj_2096_내려가기*/ {
+public class Main_bj_2096_내려가기 {
     public static void main(String[] args) throws Exception{
         StringBuilder sb = new StringBuilder(); 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
