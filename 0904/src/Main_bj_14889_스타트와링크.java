@@ -17,7 +17,7 @@ public class Main_bj_14889_스타트와링크 {
 			 * 하나의 팀은 N/2명이어야 한다. 
 			 * !!!!! cnt == N이 아니라, cnt == (int)N/2이다. 
 			 */
-//			System.out.println(Arrays.toString(b));
+			System.out.println(Arrays.toString(b));
 			int team0_score = 0, team1_score = 0; 
 			// 한 사람마다 다른 사람이 있는지 체크하고, 있으면 점수를 더한다
 			for(int i=0; i<N; i++) {
@@ -61,7 +61,8 @@ public class Main_bj_14889_스타트와링크 {
         
         min_score_diff = Integer.MAX_VALUE; 
         b = new int[N]; 
-        comb(0, 0);
+//        comb(0, 0);
+        comb(0, 1);
         System.out.println(min_score_diff);
 	}
 

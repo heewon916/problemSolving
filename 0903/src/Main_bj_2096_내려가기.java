@@ -35,7 +35,7 @@ public class Main_bj_2096_내려가기 {
             for(int j=0; j<N; j++){
                 // mat[i][j] = Integer.parseInt(st.nextToken());
                 li.add(new int[]{i, j, Integer.parseInt(st.nextToken())});
-            }
+            }	
             stk.add(li);
         }
         // 가장 맨 밑에 있는 줄부터 나올 거임 
