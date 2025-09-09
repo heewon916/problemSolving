@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+public class Solution_d3_3282_01Knapsack_서울_8반_김희원 {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        StrinBuilder sb = new StringBuilder(); 
+        StringBuilder sb = new StringBuilder(); 
         int T = Integer.parseInt(st.nextToken());
         for(int tc=1; tc<=T; tc++){
             st = new StringTokenizer(br.readLine(), " ");

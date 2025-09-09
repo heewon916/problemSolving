@@ -5,7 +5,7 @@ public class Main_bj_14499_주사위굴리기 {
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt()
+//		int N = Integer.parseInt()
 		
 	}
 
