@@ -10,7 +10,6 @@ public class Main_bj_14500_테트로미노 {
     static boolean[][] v; 
     static void dfs(int i, int j, int count, int sum){
         if(count == 3){
-            // 3인 줄 알았는데 왜 4냐 
             max_sum = Math.max(max_sum, sum);
             return; 
         }
@@ -24,8 +23,12 @@ public class Main_bj_14500_테트로미노 {
             int nj = j+dj[d]; 
             if(ni<0 || ni>=N || nj<0 || nj>=M) continue; 
             if(v[ni][nj]) continue; 
-            // 새로운 경로로 들어감 
+            // 새로운 경로로 들어감
+            
+            // 방문처리 다른 방법 
+            // v[ni][nj] = true; 
             dfs(ni, nj, count+1, sum+map[ni][nj]);
+            // v[ni][nj] = false; 
         }
         //!!! 왜 여기에 있어야 하는 걸까
         // 새로운 경로 갔다가 원래 위치로 돌아옴.
@@ -83,10 +86,17 @@ public class Main_bj_14500_테트로미노 {
         int answer = 0; 
         for(int i=0; i<N; i++){
             for(int j=0; j<M; j++){
-                for(int k=0; k<N; k++) Arrays.fill(v[k], false);
+                // DFS 진입 시, 백트래킹으로 원상복구 중이니까 시작점마다 전체 초기화 안 해줘도 된다. 
+                // 이거 주석 처리하는 것만으로도; 2596ms -> 652ms 가 되더라.. 
+                // for(int k=0; k<N; k++) Arrays.fill(v[k], false);
                 // 각 지점 i, j에 대해서 상하좌우로 3번 갔다와야 됨 
                 max_sum = 0; 
+
+                // 방문처리 다른 방법 
+                // v[i][j] = true; 
                 dfs(i, j, 0, map[i][j]);
+                // v[i][j] = false;     
+                
                 dfs2(i, j, 0, map[i][j]);
                 // System.out.println("i:" + i + " j:" + j + "에서 최대치: " + max_sum);
                 // map[i][j] = max_sum; 
