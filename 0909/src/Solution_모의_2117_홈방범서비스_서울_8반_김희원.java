@@ -31,7 +31,7 @@ public class Solution_모의_2117_홈방범서비스_서울_8반_김희원 {
 				int ny = y+dy[d]; 
 				if(nx<0 || nx>=N || ny<0 || ny>=N) continue;
 				//!!!!!!제한된 깊이를 넘지 않아야 한다. 
-				if(!v[nx][ny] && depth+1<=max_depth) {
+				if(!v[nx][ny]) {
 					v[nx][ny] = true; 
 					q.add(nx*10000 + ny*100 + (depth+1));
 				}
@@ -84,9 +84,18 @@ public class Solution_모의_2117_홈방범서비스_서울_8반_김희원 {
 						for(int dx=-(k-1); dx<=(k-1); dx++) {
 							int x = i+dx; 
 							if(x<0 || x>=N) continue;
-							int gap = 
-							for(int dy=)
+                            // 한 행에서 읽을 열의 개수를 조정해야 한다.
+                            int gap = dx<0? 2*(k+dx)-1: 2*(k-dx)-1;
+                            for(int dy=-(gap/2); dy<=(gap/2); dy++){
+                                int y = j + dy;
+                                if(y<0 || y>=N) continue;
+                                if(map[x][y] == 1) homeCnt++;
+                            }
 						}
+                        // 이익 계산하기
+                        int cost = homePay*homeCnt - ((k-1)*(k-1)+k*k);
+                        if(cost < 0) continue;
+                        max_house_count = Math.max(max_house_count, homeCnt);
 						// bfs로 영역 구하기 
 //						v = new boolean[N][N];
 //						bfs(i, j, k);
