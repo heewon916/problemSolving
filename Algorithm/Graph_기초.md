@@ -128,7 +128,7 @@ A C B E D F G : N->0
 > - 정점 u별로 g[u] 안에 (v,w)이웃들이 들어감 `int[]{v,w}`
 > - BFS/DFS/다익스트라/프림 등 **정점에서 확장**하는 알고리즘에 최적이다.
 > - 메모리: O(N+E)
->   ![Graph기초_인접리스트1](image.png)
+>   ![Graph기초_인접리스트1](img/image.png)
 >
 > 2. `List<int[]> g`
 >
@@ -137,7 +137,7 @@ A C B E D F G : N->0
 > - 크루스칼 (간선 한번에 정렬 -> 작은 것부터 union)할 때 최적
 > - 메모리: O(E)
 >
->   ![Graph기초_인접리스트2](image-1.png)
+>   ![Graph기초_인접리스트2](img/image-1.png)
 
 ```java
 public class GraphListMain{
