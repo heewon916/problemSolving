@@ -116,7 +116,49 @@ public class Main_bj_15683_감시 {
                     }
                 }
             }else if(type == 3){
+                int[] max_dir = new int[2];
+                int max_count = 0;
+                for(int d=0; d<4; d++){
+                    int count = 0;
+                    int other_d = (d+1)%4;
+                    int nx = x+dx[d];
+                    int ny = y+dy[d];
+                    while(0<=nx && nx<N && 0<=ny&& ny<M){
+                        if(map[nx][ny] == 6) break;
+                        nx += dx[d];
+                        ny += dy[d];
+                        count++;
+                    }
+                    nx = x+dx[other_d];
+                    ny = y+dy[other_d];
+                    while(0<=nx && nx<N && 0<=ny&& ny<M){
+                        if(map[nx][ny] == 6) break;
+                        nx += dx[d];
+                        ny += dy[d];
+                        count++;
+                    }
+                    if(max_count < count){
+                        max_dir[0] = d;
+                        max_dir[1] = other_d;
+                    }
+                }
 
+                int nx = x+dx[max_dir[0]];
+                int ny = y+dy[max_dir[0]];
+                while(0<=nx && nx<N && 0<=ny&& ny<M){
+                    if(map[nx][ny] == 6) break;
+                    nx += dx[max_dir[0]];
+                    ny += dy[max_dir[0]];
+                    map[nx][ny] = -1;
+                }
+                nx = x+dx[max_dir[1]];
+                ny = y+dy[max_dir[1]];
+                while(0<=nx && nx<N && 0<=ny&& ny<M){
+                    if(map[nx][ny] == 6) break;
+                    nx += dx[max_dir[1]];
+                    ny += dy[max_dir[1]];
+                    map[nx][ny] = -1;
+                }
             }else if(type == 4){
 
             }else if(type == 5){
