@@ -1,7 +1,7 @@
 import java.io.*; 
 import java.util.*; 
 
-public class Solution_d4_5643_키순서_서울_8반_김희원 {
+public class Solution_d4_5643_키순서1_최적화_서울_8반_김희원 {
 
     static int N, adj[][];
 

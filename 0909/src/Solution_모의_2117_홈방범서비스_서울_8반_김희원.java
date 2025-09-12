@@ -1,19 +1,17 @@
 import java.io.*; 
 import java.util.*; 
 public class Solution_모의_2117_홈방범서비스_서울_8반_김희원 {
-	static int N, homePay, max_house_count; 
-	static int[][] map;
-/*
+    /*
     static boolean[][] v;
     static PriorityQueue<int[]> pq;
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
-
+    
     static void bfs(int i, int j, int k) {
         // 시작점 i, j에 대해서 depth=k-1번까지 퍼질 수 있다.
         int house_cnt = 0; // 집 개수
         int max_depth = k-1;
-
+        
         ArrayDeque<Integer> q = new ArrayDeque<>();
         q.add(i*10000 + j*100 + 0);
         v[i][j] = true;
@@ -23,7 +21,7 @@ public class Solution_모의_2117_홈방범서비스_서울_8반_김희원 {
             cur /= 100;
             int y = cur%100;
             int x = cur/100;
-
+            
             //!!!!! 먼저 깊이 제거를 해줘야 한다.
             if(depth > max_depth) break;
             if(map[x][y] == 1) house_cnt++;
@@ -34,18 +32,20 @@ public class Solution_모의_2117_홈방범서비스_서울_8반_김희원 {
                 if(!v[nx][ny]) {
                     v[nx][ny] = true;
                     q.add(nx*10000 + ny*100 + (depth+1));
-                }
-            }
-        }
-
-        int cost = house_cnt * homePay - (k*k + (k-1)*(k-1));
-        if(cost < 0) return;
-        max_house_count = Math.max(max_house_count, house_cnt);
-        return;
-
-    }
-*/
-	public static void main(String[] args) throws Exception{
+                    }
+                    }
+                    }
+                    
+                    int cost = house_cnt * homePay - (k*k + (k-1)*(k-1));
+                    if(cost < 0) return;
+                    max_house_count = Math.max(max_house_count, house_cnt);
+                    return;
+                    
+                    }
+                    */
+    static int N, homePay, max_house_count; 
+    static int[][] map;
+    public static void main(String[] args) throws Exception{
 		StringBuilder sb = new StringBuilder(); 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine()); 
