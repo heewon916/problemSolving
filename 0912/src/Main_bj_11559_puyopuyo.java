@@ -30,7 +30,14 @@ public class Main_bj_11559_puyopuyo {
                 map[i][j] = str.charAt(j); 
             }
         }
-
+        /*
+         * 더 이상 터질 게 없을 때까지 돌려야 한다. 
+         * 
+         * 모든 좌표에 대해서 
+         * 1. 터질 목록을 모두 찾는다. 
+         * - 터질 게 있으면 목록에 넣고
+         * - 
+         */
         
         System.out.println(maxChain);
     }
