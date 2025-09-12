@@ -92,7 +92,7 @@ public class Solution_d9_2383_점심식사시간_버전2 {
 
         int size = list.size() + 3; 
         int[] D = new int[size]; // 3인덱스: 계단입구에 가장 빨리 도착하는 사람0을 의미한다, 4인덱스: 그 다음 도착 ... 
-        for (int i = 0; i < size; i++) {
+        for (int i = 3; i < size; i++) {
             Person p = list.get(i-3);
             if(D[i-3] <= p.arrivalTime+1){ // 3앞에 있는 사람의 도착시간이, 내가 도착해서 대기하는 시간보다 작거나 같다면 
                 D[i] = p.arrivalTime + 1 + height; 
