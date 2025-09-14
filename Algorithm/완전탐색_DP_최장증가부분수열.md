@@ -24,7 +24,7 @@
 - 어떤 수열이 왼쪽에서 오른쪽으로 나열되어 있으면 
 - 그 배열 순서를 유지하면서 크기가 점진적으로 커지는 가장 긴 부분 수열을 추출한다. 
 
-✅ 완전 탐색으로 접근한다면? ➡️ 시간복잡도 O($2^N$)
+✅ 완전 탐색으로 접근한다면? ➡️ 시간복잡도 $O(2^N)$
 - 모든 부분 집합을 구하고, 
 - 그 부분 집합이 증가 수열인지 판별하면 되는데, 
 - 부분수열의 길이가 긴 것부터 조사하면 된다.  
@@ -34,7 +34,7 @@
 
 ## 최장증가부분수열 - DP 
 
-✅ 시간복잡도 O($N^2$)
+✅ 시간복잡도 $O(N^2)$
 
 ✅ 답 != `LIS[N]`
 - 이유: 누구를 마지막으로 하는 게 최장 길이인지 모르기 때문에 항상 마지막에 있는 LIS값이 정답이 아니다. 
@@ -69,6 +69,18 @@
 ```java
 Scanner sc = new Scanner(System.in);
 int N = sc.nextInt(); 
-int[] arr = new int[N]; 
-int[] tail = new int[N]; 
+int[] arr = new int[N]; // 기존 배열 
+int[] tail = new int[N]; // 증가하는 부분수열의 마지막 수를 저장한다 
+
+int max = 0; // 최장 증가부분수열의 길이
+for(int i=0; i<N; i++){
+  a[i] = sc.nextInt(); 
+  int pos = Arrays.binarySearch(tail, 0, max, a[i]); // a[i]가 들어갈 위치를 tail에서 찾는다. 그러나 항상 검색을 실패하기 때문에, 리턴 값은 -(pos + 1)
+  if(pos < 0) pos = -(pos + 1);
+  L[pos] = a[i]; 
+  if(max == pos) max++; // 만약 수를 추가했다면, 최장증가부분수열의 길이를 +1 증가한다. 
+}
+System.out.println(Arrays.toString());
+System.out.println(max);
+sc.close(); 
 ```
