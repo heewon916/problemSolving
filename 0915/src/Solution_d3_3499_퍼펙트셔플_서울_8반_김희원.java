@@ -4,37 +4,42 @@ import java.util.*;
 public class Solution_d3_3499_퍼펙트셔플_서울_8반_김희원{
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder(); 
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int T = Integer.parseInt(st.nextToken());
+        for(int tc=1; tc<=T; tc++){
+            st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
 
-        for (int test_case = 1; test_case <= T; test_case++) {
-            int N = Integer.parseInt(br.readLine());
-            StringTokenizer st = new StringTokenizer(br.readLine());
-
-            List<String> list1 = new ArrayList<>();
-            List<String> list2 = new ArrayList<>();
-
-            int mid = (N + 1) / 2;
-
-            for (int i = 0; i < N; i++) {
-                if (i < mid) {
-                    list1.add(st.nextToken());
-                } else {
-                    list2.add(st.nextToken());
-                }
+            ArrayDeque<String> left = new ArrayDeque<>(); 
+            ArrayDeque<String> right = new ArrayDeque<>(); 
+            st = new StringTokenizer(br.readLine(), " ");
+            int mid = (N%2 == 0)? N/2: N/2+1; 
+            for(int i=0; i<N; i++){
+                if(i < mid) left.offer(st.nextToken());
+                else right.offer(st.nextToken());
             }
-
-            StringBuilder sb = new StringBuilder();
-            sb.append("#").append(test_case).append(" ");
-
-            for (int i = 0; i < N; i++) {
-                if (i % 2 == 0) {
-                    sb.append(list1.get(i / 2)).append(" ");
-                } else {
-                    sb.append(list2.get(i / 2)).append(" ");
+            // for(String str: left) System.out.print(str + " ");
+            // System.out.println();
+            // for(String str: right) System.out.print(str +" ");
+            ArrayList<String> ans = new ArrayList<>(); 
+            int len = 0; 
+            while(len <= N){
+                if(len%2 == 0) {
+                    String l = left.poll(); 
+                    if(l != null) ans.add(l);
                 }
-            }
+                else {
+                    String l = right.poll(); 
+                    if(l != null) ans.add(l);
+                }
 
-            System.out.println(sb.toString().trim());
+                len++; 
+            }
+            sb.append('#').append(tc).append(' ');
+            for(String s: ans) sb.append(s).append(' ');
+            sb.append('\n');
         }
+        System.out.println(sb);
     }
 }

@@ -1,0 +1,379 @@
+{
+    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
+    // 기존 특성에 대한 설명을 보려면 가리킵니다.
+    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_15686_서울8반_김희원",
+            "request": "launch",
+            "mainClass": "Main_bj_15686_서울8반_김희원",
+            "projectName": "0725"
+        },
+        {
+            "type": "java",
+            "name": "Solution_1233",
+            "request": "launch",
+            "mainClass": "Solution_1233",
+            "projectName": "0804"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d3_9229_한빈이와SpotMart_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_d3_9229_한빈이와SpotMart_서울_8반_김희원",
+            "projectName": "0804"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_1325_효율적인해킹_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Main_bj_1325_효율적인해킹_서울_8반_김희원",
+            "projectName": "0806"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_5567_결혼식_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Main_bj_5567_결혼식_서울_8반_김희원",
+            "projectName": "0806"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d3_6808_규영이와인영이의카드게임_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_d3_6808_규영이와인영이의카드게임_서울_8반_김희원",
+            "projectName": "0806"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d4_1210_Ladder1_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_d4_1210_Ladder1_서울_8반_김희원",
+            "projectName": "0806"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_17472_다리만들기2_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Main_bj_17472_다리만들기2_서울_8반_김희원",
+            "projectName": "0827"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d4_1251_하나로_서울_8반_김희원_프림",
+            "request": "launch",
+            "mainClass": "Solution_d4_1251_하나로_서울_8반_김희원_프림",
+            "projectName": "0827"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d4_3124_최소스패닝트리_서울_8반_김희원_프림",
+            "request": "launch",
+            "mainClass": "Solution_d4_3124_최소스패닝트리_서울_8반_김희원_프림",
+            "projectName": "0827"
+        },
+        {
+            "type": "java",
+            "name": "Solution_모의_2382_미생물격리_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_모의_2382_미생물격리_서울_8반_김희원",
+            "projectName": "0827"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_14888_연산자끼워넣기",
+            "request": "launch",
+            "mainClass": "Main_bj_14888_연산자끼워넣기",
+            "projectName": "0905"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_14890_경사로",
+            "request": "launch",
+            "mainClass": "Main_bj_14890_경사로",
+            "projectName": "0905"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_14890_경사로_최적화",
+            "request": "launch",
+            "mainClass": "Main_bj_14890_경사로_최적화",
+            "projectName": "0905"
+        },
+        {
+            "type": "java",
+            "name": "Solution_모의_2112_보호필름_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_모의_2112_보호필름_서울_8반_김희원",
+            "projectName": "0905"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_1038_감소하는수",
+            "request": "launch",
+            "mainClass": "Main_bj_1038_감소하는수",
+            "projectName": "0906"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_14891_톱니바퀴",
+            "request": "launch",
+            "mainClass": "Main_bj_14891_톱니바퀴",
+            "projectName": "0906"
+        },
+        {
+            "type": "java",
+            "name": "LISTest1",
+            "request": "launch",
+            "mainClass": "LISTest1",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_12865_평범한배낭",
+            "request": "launch",
+            "mainClass": "Main_bj_12865_평범한배낭",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_14499_주사위굴리기",
+            "request": "launch",
+            "mainClass": "Main_bj_14499_주사위굴리기",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_3745_오름세",
+            "request": "launch",
+            "mainClass": "Main_bj_3745_오름세",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d2_14510_나무높이_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_d2_14510_나무높이_서울_8반_김희원",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d3_3307_최장증가수열",
+            "request": "launch",
+            "mainClass": "Solution_d3_3307_최장증가수열",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Solution_모의_2117_홈방범서비스_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_모의_2117_홈방범서비스_서울_8반_김희원",
+            "projectName": "0909"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_15683_감시",
+            "request": "launch",
+            "mainClass": "Main_bj_15683_감시",
+            "projectName": "homework_f9ff2263"
+        },
+        {
+            "type": "java",
+            "name": "Main_bj_21608_상어초등학교",
+            "request": "launch",
+            "mainClass": "Main_bj_21608_상어초등학교",
+            "projectName": "homework_f9ff2263"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d3_3499_퍼펙트셔플_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "Solution_d3_3499_퍼펙트셔플_서울_8반_김희원",
+            "projectName": "homework_f9ff2263"
+        },
+        {
+            "type": "java",
+            "name": "Main_0812_bj_15686_치킨배달",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0812_bj_15686_치킨배달",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0813_bj_11403_경로찾기",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0813_bj_11403_경로찾기",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0813_bj_14567_선수과목",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0813_bj_14567_선수과목",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0813_bj_17471_게리맨더링",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0813_bj_17471_게리맨더링",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0815_bj_1182_부분수열의합",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0815_bj_1182_부분수열의합",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0815_bj_14503_로봇청소기_1",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0815_bj_14503_로봇청소기_1",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0815_bj_17136_색종이붙이기",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0815_bj_17136_색종이붙이기",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_0817_bj_4485_녹색옷입은애가젤다지",
+            "request": "launch",
+            "mainClass": "letsGetA.Main_0817_bj_4485_녹색옷입은애가젤다지",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_0815_sw_1767_프로세서연결하기",
+            "request": "launch",
+            "mainClass": "letsGetA.Solution_0815_sw_1767_프로세서연결하기",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_2117",
+            "request": "launch",
+            "mainClass": "my_homework.Solution_2117",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_1261",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_1261",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_14503_로봇청소기",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_14503_로봇청소기",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_14567",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_14567",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_15685_드래곤커브",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_15685_드래곤커브",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_17136",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_17136",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_21608",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_21608",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Main_4485",
+            "request": "launch",
+            "mainClass": "my_homework.bj.Main_4485",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_2117(1)",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_2117",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d3_2805_농작물수확하기_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d3_2805_농작물수확하기_서울_8반_김희원",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d4_1249_보급로_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d4_1249_보급로_서울_8반_김희원",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d4_3234_준환이의양팔저울_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d4_3234_준환이의양팔저울_서울_8반_김희원",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d5_3421_수제버거장인_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d5_3421_수제버거장인_서울_8반_김희원",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d9_2112_보호필름_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d9_2112_보호필름_서울_8반_김희원",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d9_4008_숫자만들기_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d9_4008_숫자만들기_서울_8반_김희원",
+            "projectName": "my_homework"
+        },
+        {
+            "type": "java",
+            "name": "Solution_d9_5650_핀볼게임_서울_8반_김희원",
+            "request": "launch",
+            "mainClass": "my_homework.swea.Solution_d9_5650_핀볼게임_서울_8반_김희원",
+            "projectName": "my_homework"
+        }
+    ]
+}
