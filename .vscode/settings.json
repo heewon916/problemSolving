@@ -1,6 +1,7 @@
 {
   "java.project.sourcePaths": [
+    "0915/src",
     "0911/src",
-    "0915/src"
+    "0916/src"
   ]
 }
