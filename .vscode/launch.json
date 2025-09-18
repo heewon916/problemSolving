@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Solution_모의_2477_차량정비소",
+      "request": "launch",
+      "mainClass": "Solution_모의_2477_차량정비소",
+      "projectName": "homework_f9ff2263"
+    },
+    {
+      "type": "java",
       "name": "Solution_d3_5607_조합",
       "request": "launch",
       "mainClass": "Solution_d3_5607_조합",
