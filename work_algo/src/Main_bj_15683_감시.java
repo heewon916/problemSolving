@@ -1,4 +1,4 @@
-package work_algo;
+
 import java.io.*; 
 import java.util.*; 
 public class Main_bj_15683_감시  {

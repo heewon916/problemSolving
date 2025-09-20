@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Solution_d3_22683_나무베기",
+      "request": "launch",
+      "mainClass": "Solution_d3_22683_나무베기",
+      "projectName": "homework_f9ff2263"
+    },
+    {
+      "type": "java",
       "name": "Solution_d4_1226",
       "request": "launch",
       "mainClass": "work_algo.Solution_d4_1226",

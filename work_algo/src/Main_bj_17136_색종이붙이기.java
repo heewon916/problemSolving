@@ -1,4 +1,3 @@
-package work_algo;
 
 public class Main_bj_17136_색종이붙이기 {
 

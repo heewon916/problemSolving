@@ -1,4 +1,4 @@
-package work_algo;
+
 import java.io.*; 
 import java.util.*; 
 public class Main_bj_17144_미세먼지안녕 {

@@ -1,8 +1,8 @@
-package work_algo;
+
 import java.io.*; 
 import java.util.*; 
 
-public class Solution_d4_1226 {
+public class Solution_d4_1226_미로1 {
     static int ans; 
     static boolean[][] v;
     static int[][] map; 
