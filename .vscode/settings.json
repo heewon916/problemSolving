@@ -1,8 +1,10 @@
 {
   "java.project.sourcePaths": [
+    "work_algo/src",
+    "work_algo/bj",
     "0916/src",
     "0915/src",
     "0911/src",
-    "work_algo/src"
+    "work_algo/swea"
   ]
 }
