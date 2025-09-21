@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Main_bj_3154_알람시계",
+      "request": "launch",
+      "mainClass": "Main_bj_3154_알람시계",
+      "projectName": "homework_f9ff2263"
+    },
+    {
+      "type": "java",
       "name": "Solution_d3_22683_나무베기",
       "request": "launch",
       "mainClass": "Solution_d3_22683_나무베기",
