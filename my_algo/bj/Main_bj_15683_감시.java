@@ -29,7 +29,7 @@ public class Main_bj_15683_감시  {
     			for(int j=0; j<M; j++) {
     				tmp[i][j] = map[i][j]; 
     			}
-    			System.out.println(Arrays.toString(tmp[i]));
+    			// System.out.println(Arrays.toString(tmp[i]));
     		}
     		
     		direction(tmp);
