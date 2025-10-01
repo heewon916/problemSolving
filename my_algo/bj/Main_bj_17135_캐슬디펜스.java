@@ -9,21 +9,24 @@ public class Main_bj_17135_캐슬디펜스 {
 	// 행, 열, 거리 
 	static PriorityQueue<int[]> p1 = new PriorityQueue<>((o1, o2) -> {
 		if(o1[2] == o2[2]) { // 거리가 같다면 
-			return o1[1] - o2[1]; // 열의 값이 더 작은 애로 
+			if(o1[1] == o2[1]) return o1[0] - o2[0]; 
+			else return o1[1] - o2[1]; // 열의 값이 더 작은 애로 
 		}else {
 			return o1[2] - o2[2]; 
 		}
 	});
 	static PriorityQueue<int[]> p2 = new PriorityQueue<>((o1, o2) -> {
 		if(o1[2] == o2[2]) { // 거리가 같다면 
-			return o1[1] - o2[1]; // 열의 값이 더 작은 애로 
+			if(o1[1] == o2[1]) return o1[0] - o2[0]; 
+			else return o1[1] - o2[1]; // 열의 값이 더 작은 애로 
 		}else {
 			return o1[2] - o2[2]; 
 		}
 	});
 	static PriorityQueue<int[]> p3 = new PriorityQueue<>((o1, o2) -> {
 		if(o1[2] == o2[2]) { // 거리가 같다면 
-			return o1[1] - o2[1]; // 열의 값이 더 작은 애로 
+			if(o1[1] == o2[1]) return o1[0] - o2[0]; 
+			else return o1[1] - o2[1]; // 열의 값이 더 작은 애로 
 		}else {
 			return o1[2] - o2[2]; 
 		}
@@ -51,7 +54,10 @@ public class Main_bj_17135_캐슬디펜스 {
 			while(toKill > 0) {
 				for(int p=0; p<3; p++) { // 각 궁수마다 
 //					boolean canKill = false; // 한 명의 적만 죽일 수 있다. 
-					for(int r=N-1; r>=N-D; r--) {
+					/**
+					 * N < D인 경우가 있을 수 있으므로, 탐색 범위 조심해야 한다. 
+					 */
+					for(int r=N-1; r>=(N-D>=0?N-D:0); r--) {
 						for(int c=0; c<M; c++) {
 							int dist = Math.abs(r-N) + Math.abs(c-p_cols[p]);
 							if(dist<=D && tmp[r][c] == 1) {
